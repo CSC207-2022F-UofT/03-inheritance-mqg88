@@ -16,6 +16,7 @@
  *           1. a String for the color
  *           2. an int for the capacity
  *           3. an int for the number of straps
+
  *
  *       CrossbodyBag should also have a getter method called getNumberOfStraps
  *       and it should implement the enhance method.
@@ -30,3 +31,35 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+public class CrossbodyBag extends Bag{
+    int numberOfStraps;
+    /**
+     * Creates a new CrossBodyBag with the given color and
+     * capacity, and number of straps.
+     *
+     * @param color
+     * @param capacity
+     * @param numberOfStraps
+     */
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        /**
+         * This is how we call the parent's constructor
+         * The Python equivalent is super().__init__(...)
+         */
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+    public void enhance(){
+        super.increaseCapacity(2);
+    }
+
+    public int getNumberOfStraps(){
+        return this.numberOfStraps;
+    }
+
+    @Override
+    public String toString(){
+        return this.getColor() + " Crossbody Bag with " + this.getNumberOfStraps() + " straps" + " (" +
+                this.getNumberOfContents() + " / " + this.getCapacity() + ")";
+    }
+}
